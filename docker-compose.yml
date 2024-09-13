@@ -7,10 +7,18 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
+      - "5552:5552"
+      - "15692:15692"
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
     environment:
       - RABBITMQ_DEFAULT_USER=user
       - RABBITMQ_DEFAULT_PASS=password
+      - RABBITMQ_SERVER_ADDITIONAL_ERL_ARGS=-rabbitmq_stream advertised_host localhost
+    command: | 
+      bash -c "rabbitmq-plugins enable rabbitmq_stream && rabbitmq-plugins enable rabbitmq_stream_management && rabbitmq-server"
 volumes:
   rabbitmq_data:
+networks:
+  rabbitmq_net:
+    driver: brigde

@@ -1,0 +1,14 @@
+{
+  "name": "lycheeamq",
+  "version": "1.0.0",
+  "description": "RabbitMQ docker image for lycheea",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "rabbitmq-stream-js-client": "^0.4.2"
+  }
+}
